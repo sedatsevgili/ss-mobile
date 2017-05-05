@@ -1,6 +1,6 @@
 import React from 'react';
 import  { View, Text, TextInput, StyleSheet } from 'react-native'; 
-import AppButton from '../components/AppButton.js';
+import AppButton from '../components/common/AppButton.js';
 
 export default class Login extends React.Component {
 
