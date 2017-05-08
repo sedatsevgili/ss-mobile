@@ -9,14 +9,14 @@ export default class Login extends React.Component {
         return (
             <View style={styles.body}>
                 <View style={[styles.row, {marginTop: 60} ]}>
-                    <TextInput placeholder="Kullanıcı Adı"  placeholderTextColor={placeholderTextColor} style={styles.input}/>
+                    <TextInput placeholder="Kullanıcı Adı"  placeholderTextColor={placeholderTextColor} style={styles.input} underlineColorAndroid={'rgba(255, 255, 255, 0.5)'}/>
                 </View>
 
                 <View style={styles.row}>
-                    <TextInput placeholder="Şifre" secureTextEntry={true} placeholderTextColor={placeholderTextColor} style={styles.input}/>
+                    <TextInput placeholder="Şifre" secureTextEntry={true} placeholderTextColor={placeholderTextColor} style={styles.input} underlineColorAndroid={'rgba(255, 255, 255, 0.5)'}/>
                 </View>
 
-                <AppButton text="GİRİŞ" onPress={() => {} } />
+                <AppButton text="GİRİŞ" onPress={() => {} } buttonStyle={styles.button} />
 
             </View>
         );
@@ -28,13 +28,12 @@ const styles = StyleSheet.create({
     body: {
         flex: 1,
         flexDirection: 'column',
+        justifyContent: 'flex-start',
         alignItems: 'stretch',
         margin: 20
     },
     row: {
-        flex: 1,
-        flexDirection: 'column',
-        padding: 10
+        height: 50
     },
     input: {
         fontSize: 16,
@@ -42,5 +41,14 @@ const styles = StyleSheet.create({
         color: 'rgba(255, 255, 255, 0.5)',
         textDecorationLine: 'none',
         padding: 10
+    },
+    button: {
+        marginTop: 30,
+        backgroundColor: '#92CBC5',
+        width: 102,
+        height: 40,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
     }
 });
