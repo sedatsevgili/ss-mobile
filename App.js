@@ -8,7 +8,7 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <Layout title="Giriş">
+            <Layout title="Le Blog">
                 <Main />
             </Layout>
         );

@@ -6,10 +6,27 @@ import BottomBar from '../components/main/BottomBar.js';
 
 export default class Main extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {bottomBarTexting: false};
+    }
+
     render() {
+        const bottomBarStyle = this.state.bottomBarTexting ? styles.bottomBarTexting : styles.bottomBar;
+
         return (
             <View style={styles.main}>
-                <ScrollView>
+                <ScrollView style={styles.body}>
+                    <View style={styles.row}>
+                        <Text style={styles.blogContent}>Bugün şöyle oldu böyle oldu</Text>
+                        <Text style={styles.blogDate}>01.05.2017 18:09:42</Text>
+                    </View>
+
+                    <View style={styles.row}>
+                        <Text style={styles.blogContent}>Bugün şöyle oldu böyle oldu</Text>
+                        <Text style={styles.blogDate}>01.05.2017 18:09:42</Text>
+                    </View>
+
                     <View style={styles.row}>
                         <Text style={styles.blogContent}>Bugün şöyle oldu böyle oldu</Text>
                         <Text style={styles.blogDate}>01.05.2017 18:09:42</Text>
@@ -20,7 +37,14 @@ export default class Main extends React.Component {
                         <Text style={styles.blogDate}>01.05.2017 18:09:42</Text>
                     </View>
                 </ScrollView>
-                <BottomBar />
+                <BottomBar style={bottomBarStyle} onTexting={() => {
+                    this.setState({bottomBarTexting: true})
+                    }}
+                    
+                    onTextout = {() => {
+                        this.setState({bottomBarTexting: false})
+                    }}
+                    />
             </View>
         );
     }
@@ -32,7 +56,18 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-between',
-        alignItems: 'flex-start'
+        alignItems: 'stretch'
+    },
+    body: {
+        flex: 1
+    },
+    bottomBar: {
+        flex: 0.25,
+        padding: 12
+    },
+    bottomBarTexting: {
+        flex: 3,
+        padding: 12
     },
     row: {
         flex: 1,
