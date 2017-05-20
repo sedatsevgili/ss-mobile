@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Form, Item, Input } from 'native-base';
+import {  Form, Item, Input, Button, Text } from 'native-base';
 
 
 export default class Login extends React.Component {
@@ -13,6 +13,9 @@ export default class Login extends React.Component {
                 <Item>
                     <Input placeholder="password" secureTextEntry={true} />
                 </Item>
+                <Button  style={{marginTop: 20, marginLeft: 15}}>
+                    <Text>Log In</Text>
+                </Button>
             </Form>
         );
         
