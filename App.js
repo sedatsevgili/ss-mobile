@@ -12,7 +12,7 @@ export default class App extends React.Component {
       this.state = {
         isLoading: false,
         isReady: false,
-        isLogin: false,
+        isLogin: true,
       };
     }
 
