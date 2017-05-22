@@ -13,7 +13,11 @@ export default class Main extends React.Component {
         return (
             <List dataArray={items}
                 renderRow={(item) =>
-                    <ListItem>
+                    <ListItem onLongPress={() => {
+                        // TODO 
+                        // call Main component's modal to open CommentForm
+                        // with pressed comment
+                        }}>
                         <Text>{item}</Text>
                     </ListItem>
                 }>

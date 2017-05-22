@@ -74,7 +74,10 @@ export default class App extends React.Component {
                     visible={this.state.modalVisible}
                     onRequestClose={() => {alert("Modal has been closed.")}}>
                     <Content style={{marginTop: 22}}>
-                        <CommentForm />
+                        <CommentForm afterCommentUpdate={() => {
+                            this.setModalVisible(false);
+                            // TODO call Main component's refresh
+                            }} />
                     </Content>
                 </Modal>
             </Container>
