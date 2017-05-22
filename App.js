@@ -1,7 +1,9 @@
 import React from 'react';
 import Login from './screens/Login.js';
 import Main from './screens/Main.js';
+import CommentForm from './components/CommentForm.js';
 import { Container, Header, Title, Content, Footer, Text, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
+import { Modal } from 'react-native';
 import Expo from 'expo';
 
 
@@ -13,6 +15,7 @@ export default class App extends React.Component {
         isLoading: false,
         isReady: false,
         isLogin: true,
+        modalVisible: false
       };
     }
 
@@ -23,6 +26,10 @@ export default class App extends React.Component {
             'Ionicons': require('native-base/Fonts/Ionicons.ttf'),
         });
         this.setState({isReady: true});
+    }
+
+    setModalVisible(visible) {
+        this.setState({modalVisible: visible});
     }
 
     render() {
@@ -52,13 +59,24 @@ export default class App extends React.Component {
                 {this.state.isLogin &&
                     <Footer>
                         <FooterTab>
-                            <Button vertical>
+                            <Button vertical onPress={() => {
+                            this.setModalVisible(!this.state.modalVisible)
+                            }}>
                                 <Icon name="add-circle" />
                                 <Text>Ekle</Text>
                             </Button>
                         </FooterTab>
                     </Footer>
                 }
+                <Modal 
+                    animationType={"slide"}
+                    transparent={false}
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => {alert("Modal has been closed.")}}>
+                    <Content style={{marginTop: 22}}>
+                        <CommentForm />
+                    </Content>
+                </Modal>
             </Container>
         );
     }
